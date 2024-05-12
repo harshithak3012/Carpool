@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EliteRide</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signin.css">
+    <style>
+        
+        body {
+            font-size: 12px; 
+        }
+        form {
+            height: 65rem;
+            width: 20rem;
+            margin-top:15px;
+            background-color: rgba(255, 255, 255, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 100%;
+            left: 60%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 2rem 3rem;
+        }
+        ::placeholder {
+            color: #080710; 
+        }
+
+        form * {
+            color: #080710; 
+        }
+        .background .shape {
+            height: 250px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px; 
+            font-weight: 500; 
+        }
+
+        input {
+            display: block;
+            height: 40px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 18px; 
+            font-weight: 600; 
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; 
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 16px; 
+        }
+
+        button[type="submit"],
+        button.back-button {
+            height: 43px;
+            width: 343px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover,
+        button.back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="car-container">
+            <div class="circle-bg"></div>
+            <div class="main-body">
+                <div class="cut"></div>
+                <div class="mask">
+                    <div class="headlight headlight-left"></div>
+                    <div class="headlight headlight-right"></div>
+                    <div class="honda-logo">
+                        <div class="rect rect-left"></div>
+                        <div class="rect rect-center"></div>
+                        <div class="rect rect-right"></div>
+                    </div>
+                    
+                </div>
+                <div class="shadow"></div>
+            </div>
+            <div class="circle circle-left"></div>
+            <div class="circle circle-right"></div>
+            <div class="upper-body">
+                <div class="window"></div>
+            </div>
+            <div class="wheel wheel-left"></div>
+            <div class="wheel wheel-right"></div>
+            <div class="car-shadow"></div>
+        </div>
+        <div class="road-container">
+            <div class="road"></div>
+        </div>
+    </div>
+    <form action="drive.php" method="post" id="rideform">
+        <h3>Ride Details</h3>
+        <?php if (isset($message)) : ?>
+            <p><?php echo $message; ?></p>
+        <?php endif; ?>
+        <label for="from">From</label>
+        <input type="text" placeholder="Enter Your Location" id="from" name="from">
+        <label for="to">To</label>
+        <input type="text" placeholder="Enter The Destination" id="to" name="to">
+        <label for="date">Date</label>
+        <input type="date" placeholder="Enter The Date" id="date" name="date">
+        <label for="time">Time</label>
+        <input type="time" placeholder="Enter The time" id="time" name="time">
+        <label for="carm">Car Model</label>
+        <input type="text" placeholder="Enter The Car Model" id="carm" name="carm">
+        <label for="carc">Car Company</label>
+        <input type="text" placeholder="Enter The Car Company" id="carc" name="carc">
+        <label for="carno">Car Number</label>
+        <input type="text" placeholder="Enter The Car Number" id="carno" name="carno">
+        <label for="seats">Available Seats</label>
+        <input type="text" placeholder="Enter number of seats available" id="seats" name="seats">
+        <label for="cost">Cost per person</label>
+        <input type="text" placeholder="Enter The Amount" id="cost" name="cost">
+        <button type="submit">Offer Ride</button>
+        <button type="button" class="back-button" onclick="goBack()">Back</button>
+        <p id="error-message"></p>
+    </form>
+    <script>
+        function goBack() {
+            window.location.href = 'home2.html'; 
+        }
+    </script>
+</body>
+</html>

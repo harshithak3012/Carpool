@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EliteRide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="Home.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="col6">
+            <img src="logo.svg" class="logo">
+        </div>
+        <div class="col6">
+            <ul class="topnav">
+                <li><button class="btn-r" onclick="redirectToSignUpPage()">Sign Up/ Login</button></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="header-bottom">
+        <div class="container">
+            <ul class="bottomnav">
+                <li><a href="#sec-1"><i class="fa fa-home"></i>  Home</a></li>
+                <li><a href="#sec-3"><i class="fa fa-exclamation-circle"></i>  About</a></li>
+                <li><a href="#sec-2"><i class="fa fa-gear"></i> How We Work</a></li>
+                <li><a href="#sec-4"><i class="fa fa-map-marker"></i>  Contact</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
+
+
+<section class="sec-1" id="sec-1">
+	<div class="container">
+		<div class="col6">
+			<h1 class="heading">Earn. Connect.<br>Contribute to<br>Society</h1>
+			<p>Partner with us to drive your own livelihood and more.</p>
+			<br>
+			<button class="btn-r" onclick="redirectToSignUpPage()">Get Started</button>
+		</div>
+		<div class="col6">
+			<img src="logo.svg" class="taxi-img">
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>
+
+
+<section class="sec-2" id="sec-2">
+	<div class="container">
+		<h2 class="heading-2">How It Works</h2>
+		<br>
+		<div class="col3">
+			<div class="box">
+				<i class="fa fa-hand-o-up icon-1"></i>
+				<h3>Book in just 2 Tabs</h3>
+			</div>
+		</div>
+		<div class="col3"></div>
+		<div class="col3">
+			<div class="box">
+				<i class="fa fa-automobile icon-1"></i>
+				<h3>Get a Driver</h3>
+			</div>
+		</div>
+		<div class="col3">
+			<div class="box">
+				<i class="fa fa-map-o icon-1"></i>
+				<h3>Track Your Driver</h3>
+			</div>
+		</div>
+		<div class="col3">
+			<div class="box">
+				<i class="fa fa-user icon-1"></i>
+			<h3>Arrive Safely</h3>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>	
+
+
+<section class="sec-3" id="sec-3">
+	<br><br>
+	<div class="container">
+		<h2 class="heading-3">About us</h2>
+		<div class="clearfix"></div>
+		<br><br>
+		<div class="col6">
+			<p class="p3">
+				Welcome to EliteRide. At EliteRide, we're passionate about transforming the way people commute. Our platform is designed to make carpooling convenient, efficient, and environmentally friendly. Our mission is simple: to reduce traffic congestion, lower carbon emissions, and make transportation more affordable for everyone. By connecting drivers with passengers heading in the same direction, we're creating a community-driven solution to modern transportation challenges.
+			</p>
+			<br><br>
+		</div>
+		<div class="col6">
+			<img src="img.jpg" style="width: 100%; margin-top: -200px;">
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>
+
+<section class="sec-4" id="sec-4">
+    <div class="subscribe">
+        <h2 class="subscribe__title">Contact Us</h2>
+        <p class="subscribe__copy">Enter Your Email Address So That Our Supervisors Can Get In Touch With You</p>
+        <div class="form">
+            <form id="contactForm">
+                <input type="email" class="form__email" name="email" id="email" placeholder="Enter your email address" />
+                <button type="button" class="form__button" onclick="sendEmail()">Send</button>
+            </form>
+            <div id="message"></div> 
+        </div>
+    </div>
+</section>
+
+<footer class="footer-distributed">
+    <div class="footer-right">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+    </div>
+
+    <div class="footer-left">
+        <p class="footer-links">
+            <a class="link-1" href="#sec-1">Home</a>
+            <a href="#sec-2">How It Works</a>
+            <a href="#sec-3">About</a>
+            <a href="#sec-4">Contact</a>
+        </p>
+        <p>Carpool © 2015</p>
+    </div>
+</footer>
+
+<script>
+	function redirectToSignUpPage() {
+        window.location.href = "login.html"; 
+    }
+    function sendEmail() {
+        var email = document.getElementById("email").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "home.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("message").innerHTML = "Message Sent Successfully"; // Display message
+            }
+        };
+        xhr.send("email=" + email);
+    }
+</script>
+
+</body>
+</html>

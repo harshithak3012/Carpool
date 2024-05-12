@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signin</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <div class="background">
+        <div class="car-container">
+            <div class="circle-bg"></div>
+            <div class="main-body">
+                <div class="cut"></div>
+                <div class="mask">
+                    <div class="headlight headlight-left"></div>
+                    <div class="headlight headlight-right"></div>
+                    <div class="honda-logo">
+                        <div class="rect rect-left"></div>
+                        <div class="rect rect-center"></div>
+                        <div class="rect rect-right"></div>
+                    </div>
+                    
+                </div>
+                <div class="shadow"></div>
+            </div>
+            <div class="circle circle-left"></div>
+            <div class="circle circle-right"></div>
+            <div class="upper-body">
+                <div class="window"></div>
+            </div>
+            <div class="wheel wheel-left"></div>
+            <div class="wheel wheel-right"></div>
+            <div class="car-shadow"></div>
+        </div>
+        <div class="road-container">
+            <div class="road"></div>
+        </div>
+    </div>
+    </div>
+    <form action="signup.php" method="post" id="signupForm">
+        <h3>SignUp Here</h3>
+
+        <label for="username">Enter Username</label>
+        <input type="text" placeholder="Username" id="username" name="username" required>
+
+        <div id="names">
+            <div>
+            <label for="firstname">First Name</label>
+            <input type="text" placeholder="First Name" id="firstname" name="firstname" required>
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" placeholder="Last Name" id="lastname" name="lastname" required>
+            </div>
+        </div>
+        <label for="phone">Phone Number</label>
+        <input type="text" placeholder="Enter Phonenumber" id="number" name="phn_number" required>   
+
+        <label for="email">E-mail</label>
+        <input type="text" placeholder="Enter E-mail" id="email" name="email" required>
+
+        <label for="password">Enter Password</label>
+        <input type="password" placeholder="Password" id="password" name="password" required>
+
+        <label for="password">Confirm Password</label>
+        <input type="password" placeholder="Password" id="password" name="cpassword" required>
+        <div id="newtologin">
+            <p class="loginpara">Already A User?</p><a href="login.html">Login Up</a>
+            </div>
+        <input type="submit" class="btn btn-primary w-100" id="button" value="Sign In" name="" onsubmit="alertbox()">
+         <p id="error-message"></p>
+    </form>
+    </div>
+    </div>
+    <script>
+        function alertbox()
+        {
+            alert("Registration Successful");
+        }
+    </script>
+</body>
+</html>

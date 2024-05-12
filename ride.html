@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Take a Ride</title>
+<link rel="stylesheet" href="login.css">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+    
+    body {
+        font-size: 12px; 
+    }
+    form {
+        height: 45rem;
+        width: 20rem;
+        margin-top:15px;
+        background-color: rgba(255, 255, 255, 0.13);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 70%;
+        left: 60%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 2rem 3rem;
+    }
+    ::placeholder {
+        color: #080710; 
+    }
+
+    form * {
+        color: #080710; 
+    }
+    .background .shape {
+        height: 250px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px; 
+        font-weight: 500; 
+    }
+
+    input {
+        display: block;
+        height: 40px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 10px;
+        font-weight: 300;
+    }
+
+    button[type="submit"],
+    button.back-button {
+        height: 43px;
+        width: 343px; 
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover,
+    button.back-button:hover {
+        background-color: #0056b3;
+    }
+
+    #error-message {
+        color: red;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+<div class="background">
+    <div class="car-container">
+        <div class="circle-bg"></div>
+        <div class="main-body">
+            <div class="cut"></div>
+            <div class="mask">
+                <div class="headlight headlight-left"></div>
+                <div class="headlight headlight-right"></div>
+                <div class="honda-logo">
+                    <div class="rect rect-left"></div>
+                    <div class="rect rect-center"></div>
+                    <div class="rect rect-right"></div>
+                </div>
+                
+            </div>
+            <div class="shadow"></div>
+        </div>
+        <div class="circle circle-left"></div>
+        <div class="circle circle-right"></div>
+        <div class="upper-body">
+            <div class="window"></div>
+        </div>
+        <div class="wheel wheel-left"></div>
+        <div class="wheel wheel-right"></div>
+        <div class="car-shadow"></div>
+    </div>
+    <div class="road-container">
+        <div class="road"></div>
+    </div>
+</div>
+<form action="ride.php" method="post" id="rideForm">
+    <h3>Find a Ride</h3>
+    <label for="from">From</label>
+    <input type="text" id="from" name="from" placeholder="Enter your starting point">
+
+    <label for="to">To</label>
+    <input type="text" id="to" name="to" placeholder="Enter your destination">
+    
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" placeholder="Select the date">
+
+    <label for="time">Time</label>
+    <input type="time" id="time" name="time" placeholder="Select the time">
+
+    <label for="seats">Number of seats required</label>
+    <input type="text" placeholder="Enter number of seats required" id="seats" name="seats">
+    
+    <button type="submit">Search</button>
+    <button type="button" class="back-button" onclick="goBack()">Back</button>
+</form>
+
+<div id="rideDetails" style="display: none;">
+    <h3>Ride Details</h3>
+    <p><strong>From:</strong> <span id="rideFrom"></span></p>
+    <p><strong>To:</strong> <span id="rideTo"></span></p>
+    <p><strong>Cost per Person:</strong> <span id="rideCost"></span></p>
+    <p><strong>Available Seats:</strong> <span id="rideSeats"></span></p>
+    <button type="button" id="acceptRideButton" onclick="acceptRide()">Accept Ride</button>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'home2.html'; 
+    }
+
+    function showRideDetails(from, to, cost, seats) {
+        document.getElementById('rideFrom').textContent = from;
+        document.getElementById('rideTo').textContent = to;
+        document.getElementById('rideCost').textContent = cost;
+        document.getElementById('rideSeats').textContent = seats;
+        document.getElementById('rideDetails').style.display = 'block';
+    }
+
+    function acceptRide() {
+        alert('Ride accepted!');
+    }
+</script>
+
+</body>
+</html>
